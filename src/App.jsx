@@ -3,10 +3,12 @@ import { truncate, convertLineBreaks } from "./library/string";
 import { CoinToss } from "./components/CoinToss.jsx";
 import { RockPaperScissors } from "./components/RockPaperScissors.jsx";
 import { Greeting } from "./components/Greeting.jsx";
+import { Counter } from "./components/Counter.jsx";
 
 function App() {
   return (
     <>
+      <Counter initialValue={0} increment={10} decrement={5} />
       <CoinToss
         headsMessage={"Glava!"}
         tailsMessage="Pismo!"
