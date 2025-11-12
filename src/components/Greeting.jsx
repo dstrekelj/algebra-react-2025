@@ -21,10 +21,10 @@ export function Greeting(props) {
 
   return (
     <>
-      {isMorning && <h1>{morningMessage}</h1>}
-      {isAfternoon && <h1>{afternoonMessage}</h1>}
-      {isEvening && <h1>{eveningMessage}</h1>}
-      {isNight && <h1>{nightMessage}</h1>}
+      {isMorning && <span>{morningMessage}</span>}
+      {isAfternoon && <span>{afternoonMessage}</span>}
+      {isEvening && <span>{eveningMessage}</span>}
+      {isNight && <span>{nightMessage}</span>}
     </>
   );
 }
