@@ -3,8 +3,10 @@ import { HomePage } from "./pages/HomePage.jsx";
 import { DashboardPage } from "./pages/DashboardPage.jsx";
 import { Header } from "./components/Header.jsx";
 import "./App.css";
+import { Toast } from "./components/Toast.jsx";
 
 const allowedUsers = {
+  user: "pass",
   pperic: "password123!",
   dvukovic: "lozinka456!",
   krade: "ovonitkonecepogoditi",
@@ -20,11 +22,7 @@ function App() {
     if (userPassword && userPassword === password) {
       setUser(username);
     } else {
-      setError("Invalid username or password");
-
-      setTimeout(() => {
-        setError(null);
-      }, 5000);
+      setError(`${new Date().toLocaleString()}: Invalid username or password`);
     }
   };
 
@@ -34,7 +32,7 @@ function App() {
 
   return (
     <>
-      {error && <div className="toast">{error}</div>}
+      <Toast message={error} />
       <Header onSignIn={handleSignIn} onSignOut={handleSignOut} user={user} />
       {user ? <DashboardPage /> : <HomePage />}
     </>

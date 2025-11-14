@@ -8,6 +8,13 @@ export function Header({ onSignIn, onSignOut, user }) {
 
   return (
     <header>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       {user && (
         <Greeting
           morningMessage={`Dobro jutro ${user}!`}
