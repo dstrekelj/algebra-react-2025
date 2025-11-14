@@ -7,14 +7,11 @@ export function Toast({ message }) {
   useEffect(() => {
     setToastMessage(message);
 
-    console.log("Setting timeout for toast");
     const timeoutId = setTimeout(() => {
-      console.log("Clearing toast message");
       setToastMessage(null);
     }, 5000);
 
     return () => {
-      console.log("Clearing timeout for toast");
       clearTimeout(timeoutId);
       setToastMessage(null);
     };
