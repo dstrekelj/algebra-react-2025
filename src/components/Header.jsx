@@ -1,15 +1,9 @@
 import { Greeting } from "./Greeting.jsx";
+import { SignInForm } from "./SignInForm.jsx";
 
 export function Header({ onSignIn, onSignOut, user }) {
   const handleClick = () => {
     onSignOut();
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const username = formData.get("username");
-    onSignIn(username);
   };
 
   return (
@@ -26,12 +20,7 @@ export function Header({ onSignIn, onSignOut, user }) {
           nightRange={[21, 5]}
         />
       )}
-      {!user && (
-        <form onSubmit={handleSubmit}>
-          <input name="username" type="text" placeholder="Username" />
-          <button type="submit">Sign in</button>
-        </form>
-      )}
+      {!user && <SignInForm onSignIn={onSignIn} />}
       {user && (
         <button type="button" onClick={handleClick}>
           Sign out

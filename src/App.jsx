@@ -3,11 +3,24 @@ import { HomePage } from "./pages/HomePage.jsx";
 import { DashboardPage } from "./pages/DashboardPage.jsx";
 import { Header } from "./components/Header.jsx";
 
+const allowedUsers = {
+  pperic: "password123!",
+  dvukovic: "lozinka456!",
+  krade: "ovonitkonecepogoditi",
+};
+
 function App() {
   const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
 
-  const handleSignIn = (username) => {
-    setUser(username);
+  const handleSignIn = (username, password) => {
+    const userPassword = allowedUsers[username];
+
+    if (userPassword && userPassword === password) {
+      setUser(username);
+    } else {
+      setError("Invalid username or password");
+    }
   };
 
   const handleSignOut = () => {
@@ -16,6 +29,7 @@ function App() {
 
   return (
     <>
+      {error && <div>{error}</div>}
       <Header onSignIn={handleSignIn} onSignOut={handleSignOut} user={user} />
       {user ? <DashboardPage /> : <HomePage />}
     </>

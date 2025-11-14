@@ -1,0 +1,17 @@
+export function SignInForm({ onSignIn }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const username = formData.get("username");
+    const password = formData.get("password");
+    onSignIn(username, password);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input name="username" type="text" placeholder="Username" />
+      <input name="password" type="password" placeholder="Password" />
+      <button type="submit">Sign in</button>
+    </form>
+  );
+}
