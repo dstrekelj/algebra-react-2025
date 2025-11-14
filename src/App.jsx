@@ -2,6 +2,7 @@ import { useState } from "react";
 import { HomePage } from "./pages/HomePage.jsx";
 import { DashboardPage } from "./pages/DashboardPage.jsx";
 import { Header } from "./components/Header.jsx";
+import "./App.css";
 
 const allowedUsers = {
   pperic: "password123!",
@@ -20,6 +21,10 @@ function App() {
       setUser(username);
     } else {
       setError("Invalid username or password");
+
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
     }
   };
 
@@ -29,7 +34,7 @@ function App() {
 
   return (
     <>
-      {error && <div>{error}</div>}
+      {error && <div className="toast">{error}</div>}
       <Header onSignIn={handleSignIn} onSignOut={handleSignOut} user={user} />
       {user ? <DashboardPage /> : <HomePage />}
     </>

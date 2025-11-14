@@ -1,0 +1,18 @@
+@keyframes slide-in-out {
+  0% { transform: translateY(-100%); }
+  10% { transform: translateY(0); }
+  90% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+.toast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 1rem;
+  background-color: paleturquoise;
+  text-align: center;
+  animation: slide-in-out 5s ease-out both;
+}
