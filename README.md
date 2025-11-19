@@ -1,4 +1,14 @@
-# React + Vite
+# CMS
+
+## Features
+
+- [] Sign in with a user account
+- [] Sign out
+- [] Admin pages available only to signed-in users
+- [] Create an entry
+- [] Update an entry
+- [] Delete an entry
+- [] View entries
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

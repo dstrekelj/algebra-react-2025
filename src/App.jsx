@@ -33,8 +33,7 @@ function App() {
   return (
     <>
       <Toast message={error} />
-      <Header onSignIn={handleSignIn} onSignOut={handleSignOut} user={user} />
-      {user ? <DashboardPage /> : <HomePage />}
+      {user ? <DashboardPage /> : <HomePage onSignIn={handleSignIn} />}
     </>
   );
 }

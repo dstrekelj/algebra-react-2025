@@ -1,7 +1,10 @@
-export function HomePage() {
+import { SignInForm } from "../components/SignInForm";
+
+export function HomePage({ onSignIn }) {
   return (
     <>
-      <h1>Welcome to the Home Page!</h1>
+      <h1>CMS sign-in</h1>
+      <SignInForm onSignIn={onSignIn} />
     </>
   );
 }
