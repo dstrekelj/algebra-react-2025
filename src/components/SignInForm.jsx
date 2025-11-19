@@ -1,4 +1,5 @@
 import { Button } from "./Button.jsx";
+import { Input } from "./Input.jsx";
 
 export function SignInForm({ onSignIn }) {
   const handleSubmit = (event) => {
@@ -11,8 +12,8 @@ export function SignInForm({ onSignIn }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input name="username" type="text" placeholder="Username" />
-      <input name="password" type="password" placeholder="Password" />
+      <Input name="username" type="text" placeholder="Username" />
+      <Input name="password" type="password" placeholder="Password" />
       <Button type="submit">Sign in</Button>
     </form>
   );
