@@ -1,20 +1,12 @@
 import { Greeting } from "./Greeting.jsx";
-import { SignInForm } from "./SignInForm.jsx";
 
-export function Header({ onSignIn, onSignOut, user }) {
+export function Header({ onSignOut, user }) {
   const handleClick = () => {
     onSignOut();
   };
 
   return (
     <header>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       {user && (
         <Greeting
           morningMessage={`Dobro jutro ${user}!`}
@@ -27,7 +19,6 @@ export function Header({ onSignIn, onSignOut, user }) {
           nightRange={[21, 5]}
         />
       )}
-      {!user && <SignInForm onSignIn={onSignIn} />}
       {user && (
         <button type="button" onClick={handleClick}>
           Sign out

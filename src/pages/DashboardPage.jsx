@@ -1,10 +1,12 @@
 import { Counter } from "../components/Counter";
 import { CoinToss } from "../components/CoinToss";
 import { RockPaperScissors } from "../components/RockPaperScissors";
+import { Header } from "../components/Header";
 
-export function DashboardPage() {
+export function DashboardPage({ onSignOut, user }) {
   return (
     <>
+      <Header onSignOut={onSignOut} user={user} />
       <Counter initialValue={0} increment={10} decrement={5} />
       <CoinToss
         headsMessage={"Glava!"}
