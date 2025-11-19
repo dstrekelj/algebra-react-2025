@@ -2,9 +2,9 @@
 
 ## Features
 
-- [] Sign in with a user account
-- [] Sign out
-- [] Admin pages available only to signed-in users
+- [x] Sign in with a user account
+- [x] Sign out
+- [x] Admin pages available only to signed-in users
 - [] Create an entry
 - [] Update an entry
 - [] Delete an entry

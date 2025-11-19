@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { HomePage } from "./pages/HomePage.jsx";
 import { DashboardPage } from "./pages/DashboardPage.jsx";
-import { Header } from "./components/Header.jsx";
-import "./App.css";
 import { Toast } from "./components/Toast.jsx";
+
+import "the-new-css-reset/css/reset.css";
+import "./App.css";
 
 const allowedUsers = {
   user: "pass",

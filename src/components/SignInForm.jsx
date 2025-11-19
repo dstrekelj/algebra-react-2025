@@ -1,3 +1,5 @@
+import { Button } from "./Button.jsx";
+
 export function SignInForm({ onSignIn }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,7 +13,7 @@ export function SignInForm({ onSignIn }) {
     <form onSubmit={handleSubmit}>
       <input name="username" type="text" placeholder="Username" />
       <input name="password" type="password" placeholder="Password" />
-      <button type="submit">Sign in</button>
+      <Button type="submit">Sign in</Button>
     </form>
   );
 }
