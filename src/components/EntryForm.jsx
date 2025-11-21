@@ -6,12 +6,14 @@ export function EntryForm({ onCreate }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const title = formData.get("title");
-    onCreate(title);
+    const note = formData.get("note");
+    onCreate(title, note);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <Input name="title" type="text" placeholder="Title" />
+      <Input name="note" type="text" placeholder="Note" />
       <Button type="submit">Create</Button>
     </form>
   );
