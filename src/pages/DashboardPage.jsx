@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { EntryForm } from "../components/EntryForm";
 import { Header } from "../components/Header";
+import { Entry } from "../domain/Entry";
 
 export function DashboardPage({ onSignOut, user }) {
-  const [entry, setEntry] = useState(null);
+  const [entries, setEntries] = useState([]);
 
   const handleCreate = (title) => {
-    setEntry(title);
+    const entry = new Entry(title);
+    setEntries([entry, ...entries]);
   };
 
   return (
     <>
       <Header onSignOut={onSignOut} user={user} />
       <EntryForm onCreate={handleCreate} />
-      {entry && <p>{entry}</p>}
+      {entries.map((entry) => (
+        <p key={entry.id}>{entry.title}</p>
+      ))}
     </>
   );
 }
