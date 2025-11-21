@@ -1,5 +1,6 @@
 import { Button } from "./Button.jsx";
 import { Input } from "./Input.jsx";
+import { PasswordInput } from "./PasswordInput.jsx";
 import "./SignInForm.css";
 
 export function SignInForm({ onSignIn }) {
@@ -14,7 +15,7 @@ export function SignInForm({ onSignIn }) {
   return (
     <form className="sign-in-form" onSubmit={handleSubmit}>
       <Input name="username" type="text" placeholder="Username" />
-      <Input name="password" type="password" placeholder="Password" />
+      <PasswordInput name="password" placeholder="Password" />
       <Button type="submit">Sign in</Button>
     </form>
   );
