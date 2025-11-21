@@ -12,7 +12,7 @@ export function EntryForm({ onCreate }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="title" type="text" placeholder="Title" />
+      <Input name="title" type="text" placeholder="Title" maxLength={32} />
       <Input name="note" type="text" placeholder="Note" />
       <Button type="submit">Create</Button>
     </form>
