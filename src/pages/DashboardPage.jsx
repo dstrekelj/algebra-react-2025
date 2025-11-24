@@ -1,14 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { EntryForm } from "../components/EntryForm";
 import { Header } from "../components/Header";
-import { AppContext } from "../contexts/AppContext.jsx";
 import { Entry } from "../domain/Entry";
 
-export function DashboardPage({ onSignOut, user }) {
-  const appContext = useContext(AppContext);
-
-  console.log(appContext);
-
+export function DashboardPage() {
   const [entries, setEntries] = useState([]);
 
   const handleCreate = (title, note) => {
@@ -18,7 +13,7 @@ export function DashboardPage({ onSignOut, user }) {
 
   return (
     <>
-      <Header onSignOut={onSignOut} user={user} />
+      <Header />
       <EntryForm onCreate={handleCreate} />
       {entries.map((entry) => (
         <div key={entry.id}>

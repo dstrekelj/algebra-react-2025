@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../contexts/AppContext.jsx";
 import "./Toast.css";
 
-export function Toast({ message }) {
-  const [toastMessage, setToastMessage] = useState(message);
+export function Toast() {
+  const appContext = useContext(AppContext);
+  const [toastMessage, setToastMessage] = useState(appContext.error);
 
   useEffect(() => {
-    setToastMessage(message);
+    setToastMessage(appContext.error);
 
     const timeoutId = setTimeout(() => {
       setToastMessage(null);
@@ -15,7 +17,7 @@ export function Toast({ message }) {
       clearTimeout(timeoutId);
       setToastMessage(null);
     };
-  }, [message]);
+  }, [appContext.error]);
 
   const className = toastMessage ? "toast show" : "toast hide";
 
