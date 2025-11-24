@@ -5,6 +5,7 @@ export const AppContext = createContext({
   error: null,
   signIn: () => {},
   signOut: () => {},
+  theme: "light",
 });
 
 const allowedUsers = {
@@ -14,6 +15,7 @@ const allowedUsers = {
 export function AppContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [theme, setTheme] = useState("light");
 
   const signIn = (username, password) => {
     const userPassword = allowedUsers[username];
@@ -26,11 +28,18 @@ export function AppContextProvider({ children }) {
   };
 
   const signOut = () => {
+    setTheme("light");
     setUser(null);
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <AppContext.Provider value={{ user, error, signIn, signOut }}>
+    <AppContext.Provider
+      value={{ user, error, signIn, signOut, theme, toggleTheme }}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -7,6 +7,18 @@
   --border: 2px solid var(--color-primary-dark);
 }
 
+.theme-dark {
+  --color-primary: darkblue;
+  --color-primary-dark: navy;
+  --color-primary-light: lightblue;
+}
+
+.theme-light {
+  --color-primary: blue;
+  --color-primary-dark: darkblue;
+  --color-primary-light: lightcyan;
+}
+
 body {
   font-family: var(--font-body);
 }

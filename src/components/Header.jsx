@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Greeting } from "./Greeting.jsx";
 import { AppContext } from "../contexts/AppContext.jsx";
+import { ThemeSwitcher } from "./ThemeSwitcher.jsx";
 
 export function Header() {
   const appContext = useContext(AppContext);
@@ -28,6 +29,7 @@ export function Header() {
           Sign out
         </button>
       )}
+      <ThemeSwitcher />
     </header>
   );
 }
