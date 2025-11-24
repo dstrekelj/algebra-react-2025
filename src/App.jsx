@@ -5,6 +5,7 @@ import { Toast } from "./components/Toast.jsx";
 
 import "the-new-css-reset/css/reset.css";
 import "./App.css";
+import { AppContextProvider } from "./contexts/AppContext.jsx";
 
 const allowedUsers = {
   user: "pass",
@@ -32,14 +33,14 @@ function App() {
   };
 
   return (
-    <>
+    <AppContextProvider>
       <Toast message={error} />
       {user ? (
         <DashboardPage onSignOut={handleSignOut} user={user} />
       ) : (
         <HomePage onSignIn={handleSignIn} />
       )}
-    </>
+    </AppContextProvider>
   );
 }
 
