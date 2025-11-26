@@ -9,10 +9,27 @@ export function DashboardPage() {
   const [entries, setEntries] = useState([]);
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState("ID (ASC)");
+  const [editingEntryId, setEditingEntryId] = useState(null);
 
   const handleCreate = (title, note) => {
-    const entry = new Entry(title, note);
+    const entry = new Entry({ title, note });
     setEntries([entry, ...entries]);
+  };
+
+  const handleEntryEdit = (title, note) => {
+    const updatedEntries = entries.map((entry) => {
+      if (entry.id === editingEntryId) {
+        return new Entry({
+          id: entry.id,
+          title,
+          note,
+          createdAt: entry.createdAt,
+        });
+      }
+      return entry;
+    });
+    setEntries(updatedEntries);
+    setEditingEntryId(null);
   };
 
   const handleFilter = (title) => {
@@ -26,6 +43,10 @@ export function DashboardPage() {
   const handleDelete = (id) => {
     const updatedEntries = entries.filter((entry) => entry.id !== id);
     setEntries(updatedEntries);
+  };
+
+  const handleEdit = (id) => {
+    setEditingEntryId(id);
   };
 
   const filteredEntries = entries
@@ -60,7 +81,7 @@ export function DashboardPage() {
   return (
     <>
       <Header />
-      <EntryForm onCreate={handleCreate} />
+      <EntryForm onSubmit={handleCreate} />
       <EntryFilterForm onFilter={handleFilter} />
       <EntrySortForm onSortChange={handleSortChange} />
       {filteredEntries.map((entry) => (
@@ -69,8 +90,15 @@ export function DashboardPage() {
           <div>{entry.getFormattedDate()}</div>
           <div>{entry.note}</div>
           <button onClick={() => handleDelete(entry.id)}>Delete</button>
+          <button onClick={() => handleEdit(entry.id)}>Edit</button>
         </div>
       ))}
+      {editingEntryId && (
+        <EntryForm
+          onSubmit={handleEntryEdit}
+          entry={entries.find((entry) => entry.id === editingEntryId)}
+        />
+      )}
     </>
   );
 }

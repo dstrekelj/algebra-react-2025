@@ -1,10 +1,10 @@
 import { nanoid } from "nanoid";
 
 export class Entry {
-    constructor(title, note) {
-        this.id = nanoid();
+    constructor({ id, title, createdAt, note }) {
+        this.id = id || nanoid();
         this.title = title;
-        this.createdAt = Date.now();
+        this.createdAt = createdAt || Date.now();
         this.note = note;
     }
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./Input.css";
 
-export function Input({ type, name, placeholder, maxLength }) {
-  const [value, setValue] = useState("");
+export function Input({ type, name, placeholder, maxLength, initialValue }) {
+  const [value, setValue] = useState(initialValue || "");
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -17,6 +17,7 @@ export function Input({ type, name, placeholder, maxLength }) {
         placeholder={placeholder}
         maxLength={maxLength}
         onChange={handleChange}
+        value={value}
       />
       {maxLength && (
         <span>
