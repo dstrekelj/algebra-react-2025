@@ -2,13 +2,11 @@ import { useContext } from "react";
 import { Greeting } from "./Greeting.jsx";
 import { AppContext } from "../contexts/AppContext.jsx";
 import { ThemeSwitcher } from "./ThemeSwitcher.jsx";
+import { SignOutButton } from "./SignOutButton.jsx";
+import { Button } from "./Button.jsx";
 
 export function Header() {
   const appContext = useContext(AppContext);
-
-  const handleClick = () => {
-    appContext.signOut();
-  };
 
   return (
     <header>
@@ -24,11 +22,7 @@ export function Header() {
           nightRange={[21, 5]}
         />
       )}
-      {appContext.user && (
-        <button type="button" onClick={handleClick}>
-          Sign out
-        </button>
-      )}
+      <SignOutButton />
       <ThemeSwitcher />
     </header>
   );
