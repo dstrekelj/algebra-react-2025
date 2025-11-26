@@ -7,8 +7,6 @@ export function EntryForm({ onSubmit, entry }) {
     const formData = new FormData(event.target);
     const title = formData.get("title");
     const note = formData.get("note");
-
-    console.log(onSubmit);
     onSubmit(title, note);
   };
 
