@@ -23,6 +23,11 @@ export function DashboardPage() {
     setSort(value);
   };
 
+  const handleDelete = (id) => {
+    const updatedEntries = entries.filter((entry) => entry.id !== id);
+    setEntries(updatedEntries);
+  };
+
   const filteredEntries = entries
     .filter((entry) => {
       if (filter.title) {
@@ -63,6 +68,7 @@ export function DashboardPage() {
           <div>{entry.title}</div>
           <div>{entry.getFormattedDate()}</div>
           <div>{entry.note}</div>
+          <button onClick={() => handleDelete(entry.id)}>Delete</button>
         </div>
       ))}
     </>
