@@ -34,7 +34,6 @@ export function DashboardPage() {
       return true;
     })
     .sort((a, b) => {
-      console.log("Sorting by:", sort, a, b);
       if (sort === "ID (ASC)") {
         return a.id.localeCompare(b.id);
       } else if (sort === "ID (DESC)") {
