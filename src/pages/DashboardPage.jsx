@@ -34,13 +34,22 @@ export function DashboardPage() {
       return true;
     })
     .sort((a, b) => {
-      if (sort === "ID (ASC)") {
-        return a.id.localeCompare(b.id);
-      } else if (sort === "ID (DESC)") {
-        return b.id.localeCompare(a.id);
+      switch (sort) {
+        case "ID (ASC)":
+          return a.id.localeCompare(b.id);
+        case "ID (DESC)":
+          return b.id.localeCompare(a.id);
+        case "Title (ASC)":
+          return a.title.localeCompare(b.title);
+        case "Title (DESC)":
+          return b.title.localeCompare(a.title);
+        case "Date (ASC)":
+          return a.createdAt - b.createdAt;
+        case "Date (DESC)":
+          return b.createdAt - a.createdAt;
+        default:
+          return 0;
       }
-
-      return 0;
     });
 
   return (
